@@ -80,14 +80,14 @@ return array(
 			),
 		),
 
-		'viewRenderer'=>array(
-			'class'=>'ext.phamlp.Phamlp',
-			// delete options below in production
-			'ugly' => false,
-			'style' => 'nested',
-			'debug' => 0,
-			'cache' => false,
-		),
+		// 'viewRenderer'=>array(
+		// 	'class'=>'ext.phamlp.Phamlp',
+		// 	// delete options below in production
+		// 	'ugly' => false,
+		// 	'style' => 'nested',
+		// 	'debug' => 0,
+		// 	'cache' => false,
+		// ),
 	),
 
 
