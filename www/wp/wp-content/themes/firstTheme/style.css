@@ -1,0 +1,14 @@
+/*
+Theme Name: FirstTheme
+Theme URI: http://wp-config.ru/
+Description: Тестовая тема учебного курса.
+Version: 1.0
+Author: Vlad
+Author URI: http://wp-config.ru/
+*/
+
+body: {
+	padding: 0px;
+	margin: 0px;
+	background-color: red;
+};

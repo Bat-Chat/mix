@@ -1,0 +1,64 @@
+!!!
+%html(lang="ru")
+	%head
+		%meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+		%meta(name="language" content="ru")
+		
+		// --------------------
+		// глобальные стили приложения подключаются в Controller->init() (protected/components/Controller.php), 
+		// так как здесь они подключатся ПОСЛЕ всех остальных и их нельзя будет переопределить
+		// --------------------
+
+		:php
+			// здесь можно подключить глобальные скрипты и стили. например : 
+			
+			// Yii::app()->clientScript->registerScriptFile(
+			// 	Yii::app()->assetManager->publish(
+			// 		Yii::getPathOfAlias('theme.assets.js').'/main.js'
+			// 	),
+			// 	CClientScript::POS_END
+			// );
+
+			// Yii::app()->sass->registerFile(
+			// 	Yii::getPathOfAlias('themes.default.assets.css').DIRECTORY_SEPARATOR.'main.css'
+			// );
+		= Yii::getPathOfAlias('themes.default')
+		%link(rel="stylesheet" type="text/css" href="#{ 'themes/default/assets/css/main.css' }")
+
+		%title= CHtml::encode( $this->pageTitle )
+	%body
+		%div.span2.well
+			:php
+				$this->widget('bootstrap.widgets.TbMenu', array(
+					'type' => 'list',
+					'items' => array(
+						array(
+						'label' => Yii::t('default','Application'),
+						'itemOptions' => array('class' => 'nav-header')
+						),
+						array(
+						'label' => Yii::t('default','Home'),
+						'url'=>array('/notes/index'),
+						'itemOptions' => array('class' => 'nav-header')
+						),"",
+						array(
+						'label' => Yii::t('default','User'),
+						'itemOptions' => array('class' => 'nav-header')
+						),
+						array('label' => Yii::t('default','registration'), 'url'=>array('/users/create')),
+						array('label'=>Yii::t('default','Login'), 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+						array('label'=>Yii::t('default','Logout').'('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+					)
+					)
+				);
+
+				ус
+		#container
+			#header
+				#nav
+
+			#content
+				.container
+					= $content
+
+			#footer

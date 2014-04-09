@@ -2,12 +2,13 @@
 
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
-
+Yii::setPathOfAlias( 'theme', dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'themes'.DIRECTORY_SEPARATOR.'default' );
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'My Web Application',
+	'theme' => 'default',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -80,14 +81,24 @@ return array(
 			),
 		),
 
-		// 'viewRenderer'=>array(
-		// 	'class'=>'ext.phamlp.Phamlp',
-		// 	// delete options below in production
-		// 	'ugly' => false,
-		// 	'style' => 'nested',
-		// 	'debug' => 0,
-		// 	'cache' => false,
-		// ),
+		'viewRenderer' => array(
+            'class' => 'ext.phamlp.HamlViewRenderer',
+        ),
+
+	    //     'sass' => array(
+		   //      // Path to the SassHandler class
+		   //      'class' => 'ext.phamlp.sass.Sass',
+		 		// 'sassPathAlias' => 'ext.yii-sass',
+		   //      // // Path and filename of scss.inc.php
+		   //      // 'compilerPath' => dirname(__FILE__) . '/../vendor/scssphp/scss.inc.php',
+		 
+		   //      // // Path and filename of compass.inc.php
+		   //      // // Required only if Compass support is required
+		   //      // 'compassPath' => dirname(__FILE__) . '/../vendor/scssphp-compass/compass.inc.php',
+		 
+		   //      // // Enable Compass support, defaults to false
+		   //      // 'enableCompass' => true,
+		   //  ),
 	),
 
 
