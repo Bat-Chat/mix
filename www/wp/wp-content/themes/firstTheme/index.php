@@ -1,13 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title><?php bloginfo('name'); ?></title>
-	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
-<?php wp_head(); ?>
-</head>
-<body>
- <a href="<?php bloginfo('url'); ?>"><h1><?php bloginfo('name'); ?></h1></a>
+<?php get_header(); ?>
 
+<div id="templatemo_content">
 
-</body>
-</html>
+	<?php if ( have_posts() ) : ?>
+
+		<?php /* Start the Loop */ ?>
+		<?php while ( have_posts() ) : the_post(); ?>
+			<?php get_template_part( '_note', get_post_format() ); ?>
+		<?php endwhile; ?>
+
+	<?php else : ?>
+
+		<header class="entry-header">
+			<h1 class="entry-title"><?php _e( 'No posts to display', 'firstTheme' ); ?></h1>
+		</header>
+
+	<?php endif ?>
+</div>
